@@ -1,0 +1,106 @@
+msgid ""
+msgstr "MIME-Version: 1.0\n"
+
+#. Name.
+msgid "String locator"
+msgstr ""
+
+#. Short description.
+msgid "Find and edit code in your themes and plugins"
+msgstr ""
+
+#. Screenshot description.
+msgid "Searching through the Twenty Fourteen theme for the string 'not found'"
+msgstr ""
+
+#. Screenshot description.
+msgid "Having clicked the link for one of the results and being taken to the editor in the browser"
+msgstr ""
+
+#. Screenshot description.
+msgid "Smart-Scan has detected an inconsistency in the use of braces"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "When working on themes and plugins you often notice a piece of text that appears hardcoded into the files, you need to modify it, but you don't know where it's located in the theme files."
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"Easily search through your themes, plugins or the WordPress core and be presented with a list of files, the matched text and what line of the file matched your search.\n"
+"You can then quickly make edits directly in your browser by clicking the link from the search results."
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"By default a Smart-Scan is enabled when making edits, this will look for inconsistencies with braces, brackets and parenthesis that are often accidentally left.\n"
+"This drastically reduces the risk of breaking your site when making edits, but is not an absolute guarantee."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "As of version 1.6 the plugin will check for errors on your site after making edits, and if any are detected, will revert to the previous version of your edited file."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "** Translations**"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "српски (Serbian) - Ognjen Djuraskovic"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "Español (Spanish) - Ognjen Djuraskovic"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "Deutsch (German) - <a href=\"http://profiles.wordpress.org/pixolin/\">pixolin</a>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Upload the <code>string-locator</code> folder to the <code>/wp-content/plugins/</code> directory"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Activate the plugin through the 'Plugins' menu in WordPress"
+msgstr ""
+
+#. Found in installation list item.
+msgid "You will find the String Locator option under then <code>Tools</code> menu"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Tested with WordPress 4.3"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Made it uses WordPress list tables (because they look nice and I felt adventurous)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "If the preview text is really long, an excerpt is pulled instead of making a massive text blob"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed a typo in a query argument"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Reordered the search result list based on priority"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Revert edits if site health degrades as a direct cause of said edit"
+msgstr ""
+
+#. Found in faq header.
+msgid "Will Smart-Scan guarantee my site is safe when making edits?"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Although it will do it's best at detecting incorrect usage of the commonly used symbols (parenthesis, brackets and braces), there is no guarantee every possible error is detected. The best safe guard is to keep consistent backups of your site (even when not making edits)."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "As of version 1.6, the plugin will check your site health after performing an edit. If the site is returning a site breaking error code, we'll revert to the previous version of the file."
+msgstr ""
