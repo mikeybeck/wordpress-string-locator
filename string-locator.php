@@ -453,6 +453,25 @@ class string_locator
 		$readfile = fopen( $filename, "r" );
 		if ( $readfile )
 		{
+			// Search filename for string
+			if ( stristr( $file, $string ) ) {
+				$editurl = admin_url( $this->path_to_use . '?page=string-locator&file-type=' . $type . '&file-reference=' . urlencode( $slug ) . '&edit-file=' . $file . '&string-locator-line=0&string-locator-path=' . urlencode( $path ) );
+				$relativepath = str_replace( array( ABSPATH, '\\', '/' ), array( '', DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR ), $path );
+				$path_string = sprintf(
+						'<a href="%s">%s</a>',
+						esc_url( $editurl ),
+						esc_html( $relativepath )
+					);
+				$output[] = array(
+						'ID'           => 1,
+						'linenum'      => 'File name',
+						'filename'     => $path_string,
+						'filename_raw' => $relativepath,
+						'editurl'      => $editurl,
+						'stringresult' => $file
+					);
+			}
+			
 			while ( ( $readline = fgets( $readfile ) ) !== false )
 			{
 				$string_preview_is_cut = false;
