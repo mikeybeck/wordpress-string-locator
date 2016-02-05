@@ -384,6 +384,24 @@ class string_locator
 		}
 	}
 
+	public function delete_file_url($file_url) {
+		$url = ('tools.php?page=string-locator');
+		if (false === ($creds = request_filesystem_credentials($url, '', false, false, null) ) ) {
+			return; // stop processing here
+		}
+		if ( ! WP_Filesystem($creds) ) {
+			request_filesystem_credentials($url, '', true, false, null);
+			return;
+		}
+		global $wp_filesystem;
+		if ( ! $wp_filesystem->delete( $file_url ) ) {
+		    echo 'error saving file!';
+		    error_log('error deleting file');
+		}
+		error_log('file deleted2');
+		//return 'z';
+	}
+
 	/**
 	 * When editing a file, this is where we write all the new content
 	 * We will break early if the user isn't allowed to edit files

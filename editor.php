@@ -1,9 +1,25 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 	global $string_locator;
 	$editor_content = "";
 	$file = $_GET['string-locator-path'];
 	$details = array();
 	$this_url = admin_url( ( is_multisite() ? 'network/admin.php' : 'tools.php' ) . '?page=string-locator' );
+
+
+	if(isset($_POST['delete'])){
+		if (current_user_can( 'manage_options' )) {
+        	$this->delete_file_url($file);
+		      echo '<script type="text/javascript">
+					window.location = "tools.php?page=string-locator"
+					</script>';
+			die();
+ 		} else {
+ 			echo "You must be an administrator to delete files!";
+ 		}
+      
+    }
 
 	if ( 'core' == $_GET['file-type'] ) {
 		$details = array(
@@ -110,40 +126,35 @@
 						<input type="submit" name="submit" class="button button-primary" value="<?php _e( 'Save changes', 'string-locator' ); ?>">
 					</p>
 					
-					<?php
-					
-	?>
 
-					<script>
-						function Test() {
-						    <?php
-						    function delete_file_url($file_ur) {
-		$url = ('tools.php?page=string-locator');
-		if (false === ($creds = request_filesystem_credentials($url, '', false, false, null) ) ) {
-			return; // stop processing here
-		}
-		if ( ! WP_Filesystem($creds) ) {
-			request_filesystem_credentials($url, '', true, false, null);
-			return;
-		}
-		global $wp_filesystem;
-		if ( ! $wp_filesystem->delete( $file_url ) ) {
-		    echo 'error saving file!';
-		    error_log('error deleting file');
-		}
-		error_log('file deleted');
-		//return 'z';
-	}
-						        delete_file_url( $item['xurl'] );
-						    ?>
+					
+					<?php 
+						function delete_file_url($file_url) {
+							$url = ('tools.php?page=string-locator');
+							if (false === ($creds = request_filesystem_credentials($url, '', false, false, null) ) ) {
+								error_log('error 1');
+								return; // stop processing here
+							}
+							if ( ! WP_Filesystem($creds) ) {
+								request_filesystem_credentials($url, '', true, false, null);
+								error_log('error 2');
+								return;
+							}
+							global $wp_filesystem;
+							if ( ! $wp_filesystem->delete( $file_url ) ) {
+							    echo 'error deleting file!';
+							    error_log('error deleting file ' . $file_url);
+							}
+							error_log('file deleted');
+							//return 'z';
 						}
-						</script>
 
-						<a onclick="Test(/srv/www/store/htdocs/wp-content/plugins/wordpress-string-locator/readme - Copy - Copy.txt)" class="btn">Call PHP Funktion</a>
-						<a onclick=<?php delete_file_url('/srv/www/store/htdocs/wp-content/plugins/wordpress-string-locator/readme - Copy - Copy.txt');?> class="btn">Call PHP Funktion2</a>
-					
+
+					    ?>
+
+						
 					<p class="delete">
-						<input type="submit" name="submit" class="button button-primary" value="<?php _e( 'Delete file', 'string-locator' ); ?>">
+					<input type="submit" name="delete" class="button button-primary" value="Delete file" onclick="return confirm('Are you SURE you want to delete this file?');" />
 					</p>
 				</div>
 			</div>

@@ -41,6 +41,8 @@ Search through themes or plugins to identify where the string is used, showing b
 ## Changelog ##
 
 mikeybeck: Added filename searching.  Not optional; filenames are now searched as well as inside files
+		   Also added file delete function.  I kinda feel like I might have added in some big security holes here, so
+		   USE WITH CAUTION AND AT YOUR OWN RISK!
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Clorith/wordpress-string-locator/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

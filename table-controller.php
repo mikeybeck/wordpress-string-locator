@@ -66,23 +66,7 @@ class String_Locator_Table extends WP_List_table {
 		);
 	}
 
-	function delete_file_url($file_url) {
-		$url = ('tools.php?page=string-locator');
-		if (false === ($creds = request_filesystem_credentials($url, '', false, false, null) ) ) {
-			return; // stop processing here
-		}
-		if ( ! WP_Filesystem($creds) ) {
-			request_filesystem_credentials($url, '', true, false, null);
-			return;
-		}
-		global $wp_filesystem;
-		if ( ! $wp_filesystem->delete( $file_url ) ) {
-		    echo 'error saving file!';
-		    error_log('error deleting file');
-		}
-		error_log('file deleted');
-		//return 'z';
-	}
+	
 
 	function column_stringresult( $item ) {
 		
