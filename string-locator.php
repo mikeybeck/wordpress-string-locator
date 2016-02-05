@@ -456,6 +456,7 @@ class string_locator
 			// Search filename for string
 			if ( stristr( $file, $string ) ) {
 				$editurl = admin_url( $this->path_to_use . '?page=string-locator&file-type=' . $type . '&file-reference=' . urlencode( $slug ) . '&edit-file=' . $file . '&string-locator-line=0&string-locator-path=' . urlencode( $path ) );
+				$xurl = $path;
 				$relativepath = str_replace( array( ABSPATH, '\\', '/' ), array( '', DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR ), $path );
 				$path_string = sprintf(
 						'<a href="%s">%s</a>',
@@ -468,7 +469,8 @@ class string_locator
 						'filename'     => $path_string,
 						'filename_raw' => $relativepath,
 						'editurl'      => $editurl,
-						'stringresult' => $file
+						'stringresult' => $file,
+						'xurl'         => $xurl
 					);
 			}
 			
@@ -492,6 +494,7 @@ class string_locator
 					 * Create the URL to take the user to the editor
 					 */
 					$editurl = admin_url( $this->path_to_use . '?page=string-locator&file-type=' . $type . '&file-reference=' . urlencode( $slug ) . '&edit-file=' . $file . '&string-locator-line=' . $linenum . '&string-locator-path=' . urlencode( $path ) );
+					$xurl = $path;
 
 					$string_preview  = $readline;
 					if ( strlen( $string_preview ) > 100 ) {
@@ -531,7 +534,8 @@ class string_locator
 						'filename'     => $path_string,
 						'filename_raw' => $relativepath,
 						'editurl'      => $editurl,
-						'stringresult' => $string_preview
+						'stringresult' => $string_preview,
+						'xurl'         => $xurl
 					);
 				}
 			}
