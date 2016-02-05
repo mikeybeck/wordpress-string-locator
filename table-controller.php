@@ -93,13 +93,13 @@ class String_Locator_Table extends WP_List_table {
 				'<a href="%s">%s</a>',
 				esc_url( $item['editurl'] ),
 				__( 'Edit' )
-			),
+			)/*,
 			'delete' => sprintf(
 				'<a href="%s">%s</a>',
 				//esc_url( $item['deleteurl'] ),
 				$this->delete_file_url( $item['xurl'] ),
 				__( 'Delete' )
-			)
+			)*/
 		);
 
 		return sprintf(
