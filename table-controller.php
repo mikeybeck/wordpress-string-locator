@@ -78,7 +78,9 @@ class String_Locator_Table extends WP_List_table {
 		global $wp_filesystem;
 		if ( ! $wp_filesystem->delete( $file_url ) ) {
 		    echo 'error saving file!';
+		    error_log('error deleting file');
 		}
+		error_log('file deleted');
 		//return 'z';
 	}
 
